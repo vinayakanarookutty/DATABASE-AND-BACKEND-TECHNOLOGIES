@@ -1,0 +1,62 @@
+Non-relational databases, often referred to as NoSQL databases, come in various categories, each designed to handle different types of data and use cases. The main categories of non-relational databases include:
+
+1.Document-oriented Databases:
+
+Characteristics:
+Store data in flexible, semi-structured document formats like JSON or BSON.
+Each document can have a different structure.
+Well-suited for hierarchical or nested data structures.
+Examples:
+MongoDB
+CouchDB
+
+2.Key-Value Stores:
+
+Characteristics:
+Store data as key-value pairs.
+Simple and efficient, providing fast read and write operations.
+Lack of complex querying capabilities.
+Examples:
+Redis
+Amazon DynamoDB
+Riak
+
+3.Column-family Stores:
+
+Characteristics:
+Store data in columns rather than rows.
+Well-suited for read-heavy workloads and analytical queries.
+Scalable horizontally.
+Examples:
+Apache Cassandra
+HBase
+
+4.Graph Databases:
+
+Characteristics:
+Designed for handling relationships between entities.
+Use graph structures with nodes, edges, and properties.
+Efficient for traversing and querying complex relationships.
+Examples:
+Neo4j
+Amazon Neptune
+ArangoDB
+
+5.Object-oriented Databases:
+
+Characteristics:
+Store data as objects, similar to the objects in object-oriented programming.
+Suitable for applications with complex data models.
+Examples:
+db4o
+ObjectDB
+
+6.Multi-model Databases:
+
+Characteristics:
+Support multiple data models within the same database system.
+Provide flexibility to choose the most suitable model for different parts of the application.
+Examples:
+ArangoDB
+OrientDB
+These categories are not mutually exclusive, and some databases may exhibit features from multiple categories (e.g., multi-model databases). The choice of a non-relational database depends on the specific requirements of the application, the nature of the data, and the desired scalability and performance characteristics. Many modern applications use a combination of these databases based on the specific needs of different components within the system.
