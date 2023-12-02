@@ -17,45 +17,38 @@ Best suited for structured and well-defined data.
 
 Non-Relational Databases:Dynamic schema allows for easy modification and addition of fields.
 Better suited for semi-structured or unstructured data.
+
 3. Scalability:
 
-Relational Databases:
-
-Vertical scaling (adding more power to a single server) is the traditional approach.
+Relational Databases:Vertical scaling (adding more power to a single server) is the traditional approach.
 Limited scalability for handling large amounts of data and traffic.
-Non-Relational Databases:
 
-Horizontal scaling (adding more servers to a database) is common.
+Non-Relational Databases:Horizontal scaling (adding more servers to a database) is common.
 Better scalability for handling large volumes of data and high traffic.
+
 4. Query Language:
 
-Relational Databases:
-
-Structured Query Language (SQL) is the standard query language.
+Relational Databases:Structured Query Language (SQL) is the standard query language.
 Powerful for complex queries and transactions.
-Non-Relational Databases:
 
-Use various query languages depending on the type of database (e.g., MongoDB uses a JSON-like query language).
+Non-Relational Databases:Use various query languages depending on the type of database (e.g., MongoDB uses a JSON-like query language).
 May not be as powerful as SQL for complex queries.
+
+
 5. ACID Properties:
 
-Relational Databases:
-
-Adhere to ACID properties (Atomicity, Consistency, Isolation, Durability).
+Relational Databases:Adhere to ACID properties (Atomicity, Consistency, Isolation, Durability).
 Ensure data integrity in transactions.
-Non-Relational Databases:
 
-May not strictly adhere to ACID properties.
+Non-Relational Databases:May not strictly adhere to ACID properties.
 Prioritize availability and partition tolerance (CAP theorem) over strict consistency in some cases.
+
 6. Use Cases:
 
-Relational Databases:
-
-Suitable for applications with well-defined schemas and complex relationships between entities.
+Relational Databases:Suitable for applications with well-defined schemas and complex relationships between entities.
 Examples include financial systems, customer relationship management (CRM), and enterprise resource planning (ERP) systems.
-Non-Relational Databases:
 
-Suitable for applications with rapidly changing data, large amounts of data, and a need for horizontal scalability.
+Non-Relational Databases:Suitable for applications with rapidly changing data, large amounts of data, and a need for horizontal scalability.
 Examples include content management systems, real-time big data applications, and IoT platforms.
 In summary, the choice between a relational and non-relational database depends on the specific requirements of the application, the nature of the data, and scalability needs. Many modern applications use a combination of both types of databases (polyglot persistence) to leverage the strengths of each in different parts of the system.
 
