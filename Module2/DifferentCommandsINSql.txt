@@ -1,0 +1,57 @@
+SQL (Structured Query Language) is divided into three main components, each serving a different purpose in database management. These components are:
+
+1. **DDL (Data Definition Language):**
+   - **Purpose:** DDL deals with the structure or schema of the database.
+   - **Key Commands:**
+     - `CREATE`: Used to create database objects like tables, indexes, or views.
+       ```sql
+       CREATE TABLE tablename (
+           column1 datatype,
+           column2 datatype,
+           ...
+       );
+       ```
+     - `ALTER`: Modifies the structure of an existing database object (e.g., adding or dropping columns).
+       ```sql
+       ALTER TABLE tablename ADD COLUMN newcolumn datatype;
+       ```
+     - `DROP`: Deletes an existing database object (e.g., a table).
+       ```sql
+       DROP TABLE tablename;
+       ```
+
+2. **DML (Data Manipulation Language):**
+   - **Purpose:** DML deals with the manipulation or processing of data stored in the database.
+   - **Key Commands:**
+     - `SELECT`: Retrieves data from one or more tables.
+       ```sql
+       SELECT column1, column2 FROM tablename WHERE condition;
+       ```
+     - `INSERT`: Adds new records to a table.
+       ```sql
+       INSERT INTO tablename (column1, column2) VALUES (value1, value2);
+       ```
+     - `UPDATE`: Modifies existing records in a table.
+       ```sql
+       UPDATE tablename SET column1 = value1 WHERE condition;
+       ```
+     - `DELETE`: Removes records from a table.
+       ```sql
+       DELETE FROM tablename WHERE condition;
+       ```
+
+3. **DCL (Data Control Language):**
+   - **Purpose:** DCL deals with the control and management of access to data within the database.
+   - **Key Commands:**
+     - `GRANT`: Provides specific privileges to a user or role.
+       ```sql
+       GRANT SELECT, INSERT ON tablename TO username;
+       ```
+     - `REVOKE`: Removes specific privileges from a user or role.
+       ```sql
+       REVOKE SELECT ON tablename FROM username;
+       ```
+
+These components are essential for managing databases effectively. DDL is used to define the structure of the database, DML is used for data manipulation and retrieval, and DCL is used for controlling access and permissions.
+
+It's worth noting that there is another component called DQL (Data Query Language), which is often considered a subset of DML. DQL specifically focuses on the `SELECT` statement for querying data. In practice, you'll commonly see the distinction between DDL, DML, and DCL when working with SQL databases.
