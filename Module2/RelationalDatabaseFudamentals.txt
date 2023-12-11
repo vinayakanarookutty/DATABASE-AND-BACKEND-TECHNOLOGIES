@@ -1,0 +1,12 @@
+
+Certainly! SQL (Structured Query Language) is a powerful language used for managing and manipulating relational databases. Let's cover some fundamental concepts and basic SQL commands to get you started.
+
+1.Relational Database Basics:Database:A database is a structured collection of data. It can contain one or more tables.
+
+2.Table:A table is a collection of related data entries organized in rows and columns.
+
+3.Row (Record):A row, also known as a record, represents a single data entry in a table.
+
+4.Column (Field):A column represents a specific attribute or property of the data, and it contains the values for that attribute for each row in the table.
+
+5.Primary Key:A primary key uniquely identifies each record in a table. It must contain unique values and cannot have NULL values.
