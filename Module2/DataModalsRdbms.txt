@@ -1,0 +1,91 @@
+It seems like you meant to ask about "data models" rather than "data modals" in relational database management systems (RDBMS). Let's discuss the concept of data models in the context of RDBMS.
+
+### Data Models in RDBMS:
+
+1. **Relational Data Model:**
+   - **Description:** The most widely used data model in RDBMS. It organizes data into tables, where each table consists of rows and columns. Relationships between tables are established using keys.
+   - **Example:**
+     ```sql
+     CREATE TABLE Employees (
+         EmployeeID INT PRIMARY KEY,
+         FirstName VARCHAR(50),
+         LastName VARCHAR(50),
+         DepartmentID INT
+     );
+     ```
+
+2. **Entity-Relationship Model (ER Model):**
+   - **Description:** Represents entities (objects or concepts) and the relationships between them. It's often used to create an Entity-Relationship Diagram (ERD) to visualize the database structure.
+   - **Example:**
+     ```sql
+     CREATE TABLE Departments (
+         DepartmentID INT PRIMARY KEY,
+         DepartmentName VARCHAR(50)
+     );
+
+     ALTER TABLE Employees
+     ADD FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID);
+     ```
+
+3. **Normalization:**
+   - **Description:** A process applied to the relational data model to reduce data redundancy and dependency. It involves organizing data into tables to eliminate data anomalies.
+   - **Example:**
+     ```sql
+     CREATE TABLE Employees (
+         EmployeeID INT PRIMARY KEY,
+         FirstName VARCHAR(50),
+         LastName VARCHAR(50),
+         DepartmentID INT,
+         CONSTRAINT fk_Department FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID)
+     );
+     ```
+
+4. **Denormalization:**
+   - **Description:** The opposite of normalization, it involves combining tables to simplify queries and improve performance. It may introduce some level of redundancy.
+   - **Example:**
+     ```sql
+     CREATE TABLE EmployeeDetails (
+         EmployeeID INT PRIMARY KEY,
+         FullName VARCHAR(100),
+         DepartmentName VARCHAR(50)
+     );
+     ```
+
+5. **Hierarchical Model (Not Commonly Used in RDBMS):**
+   - **Description:** Represents data in a tree-like structure where each record has a single parent. Not commonly used in RDBMS but found in some specialized systems.
+   - **Example:**
+     ```sql
+     -- Not a common SQL example; used for illustration purposes
+     CREATE TABLE Employees (
+         EmployeeID INT PRIMARY KEY,
+         FirstName VARCHAR(50),
+         LastName VARCHAR(50),
+         ManagerID INT
+     );
+     ```
+
+6. **Network Model (Not Commonly Used in RDBMS):**
+   - **Description:** Extends the hierarchical model by allowing each record to have multiple parents. Also not commonly used in modern RDBMS.
+   - **Example:**
+     ```sql
+     -- Not a common SQL example; used for illustration purposes
+     CREATE TABLE Employees (
+         EmployeeID INT PRIMARY KEY,
+         FirstName VARCHAR(50),
+         LastName VARCHAR(50)
+     );
+
+     CREATE TABLE Projects (
+         ProjectID INT PRIMARY KEY,
+         ProjectName VARCHAR(50)
+     );
+
+     CREATE TABLE WorksOn (
+         EmployeeID INT,
+         ProjectID INT,
+         CONSTRAINT fk_Employee FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID),
+         CONSTRAINT fk_Project FOREIGN KEY (ProjectID) REFERENCES Projects(ProjectID)
+     );
+     ```
+
+These are just some of the data models and concepts within the realm of relational databases. The relational model, in particular, is the foundation for many modern database systems. When working with databases, understanding these models and applying normalization principles can help design efficient and maintainable database structures.
