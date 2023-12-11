@@ -1,0 +1,95 @@
+Certainly! Normalization is a process in database design that helps reduce redundancy and improve data integrity by organizing data into related tables. Let's walk through an example of applying normalization in MySQL.
+
+### Scenario:
+Consider a scenario where you have information about books, authors, and publishers. Initially, you might have all this information in a single table, but we will normalize it into separate tables.
+
+#### Initial Structure (Not Normalized):
+```sql
+CREATE DATABASE LibraryDB;
+USE LibraryDB;
+
+CREATE TABLE Books (
+    ISBN VARCHAR(13) PRIMARY KEY,
+    Title VARCHAR(255),
+    Author VARCHAR(100),
+    Publisher VARCHAR(100),
+    PublicationYear INT,
+    Price DECIMAL(8, 2)
+);
+
+INSERT INTO Books (ISBN, Title, Author, Publisher, PublicationYear, Price)
+VALUES
+    ('1234567890123', 'Book1', 'Author1', 'Publisher1', 2020, 29.99),
+    ('2345678901234', 'Book2', 'Author2', 'Publisher2', 2021, 39.99),
+    ('3456789012345', 'Book3', 'Author1', 'Publisher1', 2019, 24.99);
+```
+
+#### Normalization Steps:
+
+### 1. First Normal Form (1NF):
+
+- Break down the table into atomic (indivisible) values.
+- Remove repeating groups.
+
+```sql
+CREATE TABLE Authors (
+    AuthorID INT PRIMARY KEY AUTO_INCREMENT,
+    AuthorName VARCHAR(100) UNIQUE
+);
+
+CREATE TABLE Publishers (
+    PublisherID INT PRIMARY KEY AUTO_INCREMENT,
+    PublisherName VARCHAR(100) UNIQUE
+);
+
+CREATE TABLE Books (
+    ISBN VARCHAR(13) PRIMARY KEY,
+    Title VARCHAR(255),
+    AuthorID INT,
+    PublisherID INT,
+    PublicationYear INT,
+    Price DECIMAL(8, 2),
+    FOREIGN KEY (AuthorID) REFERENCES Authors(AuthorID),
+    FOREIGN KEY (PublisherID) REFERENCES Publishers(PublisherID)
+);
+
+INSERT INTO Authors (AuthorName) VALUES ('Author1'), ('Author2');
+INSERT INTO Publishers (PublisherName) VALUES ('Publisher1'), ('Publisher2');
+```
+
+### 2. Second Normal Form (2NF):
+
+- Ensure all non-key attributes are fully functionally dependent on the primary key.
+
+```sql
+-- No changes needed in this case.
+```
+
+### 3. Third Normal Form (3NF):
+
+- Remove transitive dependencies.
+
+```sql
+CREATE TABLE Books (
+    ISBN VARCHAR(13) PRIMARY KEY,
+    Title VARCHAR(255),
+    AuthorID INT,
+    PublisherID INT,
+    PublicationYear INT,
+    Price DECIMAL(8, 2),
+    FOREIGN KEY (AuthorID) REFERENCES Authors(AuthorID),
+    FOREIGN KEY (PublisherID) REFERENCES Publishers(PublisherID)
+);
+
+CREATE TABLE Authors (
+    AuthorID INT PRIMARY KEY AUTO_INCREMENT,
+    AuthorName VARCHAR(100) UNIQUE
+);
+
+CREATE TABLE Publishers (
+    PublisherID INT PRIMARY KEY AUTO_INCREMENT,
+    PublisherName VARCHAR(100) UNIQUE
+);
+```
+
+In this example, we have normalized the initial structure into three separate tables: Authors, Publishers, and Books. This helps reduce redundancy and establishes relationships between entities. Always keep in mind that the specific normalization steps may vary based on the actual requirements and characteristics of your data.
