@@ -1,0 +1,11 @@
+2nf Student_Courses
+-----------------
+StudentID (Primary Key)
+StudentName
+StudentDOB
+CourseID
+CourseName
+Professor
+Department
+EnrollmentDate
+Grade

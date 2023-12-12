@@ -57,3 +57,30 @@ Now, let's break down the changes:
    - `HoursWorked` depends on the combination of `EmployeeID` and `ProjectID`.
 
 By breaking down the original table into these three tables, we eliminate the partial dependencies, and each non-key attribute depends on the entire primary key. This adheres to the principles of Second Normal Form (2NF) and results in a more organized and normalized database structure.
+
+
+Employee_Info
+-----------------
+EmployeeID (PK)
+EmployeeName
+Department
+ManagerID
+ManagerName
+
+Employee_Info
+-----------------
+EmployeeID (PK)
+EmployeeName
+Department
+
+
+Manager_Info
+-----------------
+ManagerID (PK)
+ManagerName
+
+Employee_Manager_Relationship
+-----------------
+EmployeeID (PK, FK)
+ManagerID (FK)
+
