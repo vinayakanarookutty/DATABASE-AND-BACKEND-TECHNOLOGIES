@@ -9,3 +9,28 @@ Professor
 Department
 EnrollmentDate
 Grade
+
+ Answer
+
+###Student_Details
+StudentID (Primary Key)
+StudentName
+StudentDOB
+EnrollmentDate
+Grade
+
+
+###Course Details
+CourseID
+CourseName
+Professor
+
+
+3NF
+####Relationships Table
+StudentID(foreign key)
+CourseID(foreign key)
+EnrollmentDate
+Grade
+
+
