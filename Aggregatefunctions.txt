@@ -1,0 +1,56 @@
+In MySQL, aggregate functions perform a calculation on a set of values and return a single value. These functions are often used with the `SELECT` statement to perform operations on columns of a table. Here are some common aggregate functions in MySQL:
+
+1. **COUNT():**
+   - Counts the number of rows that match a specified condition.
+   ```sql
+   SELECT COUNT(*) FROM your_table;
+   ```
+
+2. **SUM():**
+   - Calculates the sum of values in a numeric column.
+   ```sql
+   SELECT SUM(column_name) FROM your_table;
+   ```
+
+3. **AVG():**
+   - Calculates the average value of a numeric column.
+   ```sql
+   SELECT AVG(column_name) FROM your_table;
+   ```
+
+4. **MIN():**
+   - Returns the minimum value in a column.
+   ```sql
+   SELECT MIN(column_name) FROM your_table;
+   ```
+
+5. **MAX():**
+   - Returns the maximum value in a column.
+   ```sql
+   SELECT MAX(column_name) FROM your_table;
+   ```
+
+6. **GROUP_CONCAT():**
+   - Concatenates values from multiple rows into a single string, with optional separator.
+   ```sql
+   SELECT GROUP_CONCAT(column_name SEPARATOR ', ') FROM your_table;
+   ```
+
+7. **GROUP BY:**
+   - Groups rows that have the same values in specified columns into summary rows, like for use with aggregate functions.
+   ```sql
+   SELECT column_name, COUNT(*)
+   FROM your_table
+   GROUP BY column_name;
+   ```
+
+8. **HAVING:**
+   - Specifies a condition for filtering the results of a `GROUP BY` clause.
+   ```sql
+   SELECT column_name, COUNT(*)
+   FROM your_table
+   GROUP BY column_name
+   HAVING COUNT(*) > 1;
+   ```
+
+These aggregate functions are essential for summarizing and analyzing data in a MySQL database. They allow you to perform calculations on sets of data, and when combined with `GROUP BY` and `HAVING`, you can gain insights into the distribution of values within your dataset.
