@@ -1,0 +1,59 @@
+Sure, let's consider an example to illustrate the concept of Second Normal Form (2NF).
+
+Suppose we have a table called `Employee_Projects` that tracks information about employees and the projects they are working on:
+
+```plaintext
+Employee_Projects
+------------------
+EmployeeID (PK)
+ProjectID (PK)
+EmployeeName
+ProjectName
+HoursWorked
+```
+
+In this table:
+
+- `(EmployeeID, ProjectID)` represents the composite primary key.
+- `EmployeeName` depends on `EmployeeID`.
+- `ProjectName` depends on `ProjectID`.
+- `HoursWorked` depends on the combination of `EmployeeID` and `ProjectID`.
+
+Here, we have partial dependencies, which violate the principles of 2NF. To normalize this table to 2NF, we create separate tables for each entity and its associated attributes:
+
+```plaintext
+Employees
+-----------------
+EmployeeID (PK)
+EmployeeName
+
+Projects
+-----------------
+ProjectID (PK)
+ProjectName
+
+Employee_Projects
+-----------------
+EmployeeID (FK)
+ProjectID (FK)
+HoursWorked
+```
+
+Now, let's break down the changes:
+
+1. **Employees Table:**
+   - Contains information about employees.
+   - `EmployeeID` is the primary key.
+   - `EmployeeName` depends only on the `EmployeeID`.
+  
+2. **Projects Table:**
+   - Contains information about projects.
+   - `ProjectID` is the primary key.
+   - `ProjectName` depends only on the `ProjectID`.
+
+3. **Employee_Projects Table:**
+   - Represents the association between employees and projects.
+   - `EmployeeID` and `ProjectID` are foreign keys referencing the `Employees` and `Projects` tables.
+   - `HoursWorked` depends on the combination of `EmployeeID` and `ProjectID`.
+
+By breaking down the original table into these three tables, we eliminate the partial dependencies, and each non-key attribute depends on the entire primary key. This adheres to the principles of Second Normal Form (2NF) and results in a more organized and normalized database structure.
