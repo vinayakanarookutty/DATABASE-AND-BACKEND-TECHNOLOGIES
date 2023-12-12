@@ -1,0 +1,57 @@
+In SQL, joins are used to combine rows from two or more tables based on a related column between them. Joins play a crucial role in querying data from a relational database, allowing you to retrieve information that spans multiple tables. There are several types of joins in SQL, and each serves a different purpose. Here are some common types:
+
+1. **INNER JOIN:**
+   - The INNER JOIN keyword selects records that have matching values in both tables.
+   - Syntax:
+     ```sql
+     SELECT columns
+     FROM table1
+     INNER JOIN table2 ON table1.column = table2.column;
+     ```
+
+2. **LEFT (OUTER) JOIN:**
+   - The LEFT JOIN keyword returns all records from the left table (table1) and the matched records from the right table (table2). The result is NULL from the right side if there is no match.
+   - Syntax:
+     ```sql
+     SELECT columns
+     FROM table1
+     LEFT JOIN table2 ON table1.column = table2.column;
+     ```
+
+3. **RIGHT (OUTER) JOIN:**
+   - The RIGHT JOIN keyword returns all records from the right table (table2) and the matched records from the left table (table1). The result is NULL from the left side if there is no match.
+   - Syntax:
+     ```sql
+     SELECT columns
+     FROM table1
+     RIGHT JOIN table2 ON table1.column = table2.column;
+     ```
+
+4. **FULL (OUTER) JOIN:**
+   - The FULL JOIN keyword returns all records when there is a match in either the left (table1) or the right (table2) table records.
+   - Syntax:
+     ```sql
+     SELECT columns
+     FROM table1
+     FULL JOIN table2 ON table1.column = table2.column;
+     ```
+
+5. **CROSS JOIN:**
+   - The CROSS JOIN keyword returns the Cartesian product of the two tables, i.e., all possible combinations of rows.
+   - Syntax:
+     ```sql
+     SELECT columns
+     FROM table1
+     CROSS JOIN table2;
+     ```
+
+6. **SELF JOIN:**
+   - A self join is a regular join, but the table is joined with itself. It is used when you want to combine rows with related rows within the same table.
+   - Syntax:
+     ```sql
+     SELECT columns
+     FROM table t1
+     INNER JOIN table t2 ON t1.column = t2.column;
+     ```
+
+These are the basic types of joins in SQL. The choice of which join to use depends on the specific requirements of your query and the relationships between the tables in your database. Understanding how to use joins effectively is fundamental for retrieving and combining data from different tables in a relational database.
